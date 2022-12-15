@@ -1,0 +1,20 @@
+1. Le principe de LSP est violé. Lorsque BouteilleNonRefermable hérite Bouteille, elle doit respecter/avoir touts les comportements
+de Bouteille. Ici, il n'existe pas la méthode fermer dans BouteilleNonRefermable.
+
+2. Les instructions aux sujets vont passer la compilation si la Carafe hérite la classe Verre. En fait, c'est une mauvaise idée
+car la classe Carafe ne possède pas la méthode void boire(int) c-à-d elle respecte pas le principe de LSP. Donc aucune relation
+entre ces 2 classe.
+
+3. On suppose qu'on va créer un/des objet(s) pour gérer la manière dont le contenu change et, d’autre part,
+ s’il faut les ouvrir et si on peut les refermer etc. C'est évident qu'il va violer le principe de SRP car ces objets a
+ beaucoup de responsabilités différentes.
+
+ Si on créer une interface pour résoudre ce problème, il pourra violer le principe de l'ISP car il existe des méthodes qui
+ ne peut pas appliquer pour tous les classes et que une classe devra implémenter plusieurs interfaces différentes.
+
+ 4. On peut ajouter une méthode pour vérifier que la quantité de liquide versée ou bue est inférieure à celle qu’il reste
+ dans la classe Contenant. Il faut remarquer qu'il va violer le principe du OCP car maintenant, on doit modifier
+ la classe Contenant pour ajouter une fonction.
+
+5. Selon la nouvelle organisation de codes, les principes SOLID qui étaient violés sont bien respectés car les classe/Interfaces
+ont des responsabilités différentes et on n'a plus besoin de modifier une classe si on veut ajouter un comportement.
